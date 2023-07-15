@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solve.c                                            :+:      :+:    :+:   */
+/*   tab_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvandepu <rvandepu@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 10:27:01 by rvandepu          #+#    #+#             */
-/*   Updated: 2023/07/15 14:20:39 by almarico         ###   ########.fr       */
+/*   Updated: 2023/07/15 15:58:19 by rvandepu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
 
-int	**create_table(int size)
+int	create_tab(int ***tab, int size)
 {
-	int	**tab;
 	int	i;
 
-	tab = malloc(size * sizeof(int *));
+	*tab = malloc(size * sizeof(int *));
+	if (*tab == NULL)
+		return (1);
 	i = 0;
 	while (i < size)
-		tab[i++] = malloc(size * sizeof(int));
-	return (tab);
+	{
+		(*tab)[i] = malloc(size * sizeof(int));
+		if ((*tab)[i++] == NULL)
+			return (1);
+	}
+	return (0);
 }
 
 void	display_tab(int **tab, int size)

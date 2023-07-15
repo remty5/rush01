@@ -6,7 +6,7 @@
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 12:21:39 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/15 13:50:02 by almarico         ###   ########.fr       */
+/*   Updated: 2023/07/15 15:27:19 by rvandepu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_check_params(char *str)
 
 	i = 0;
 	count_nb = 0;
-	count_space;
+	count_space = 0;
 	while (str[i])
 	{
 		if (str[i] >= '1' && str[i] <= '4')
@@ -44,7 +44,7 @@ int	*convert_params(char *str, int *tab_arg)
 	j = 0;
 	while (j <= 30)
 	{
-		tab_arg[i] = str[i] - '0';
+		tab_arg[i] = str[j] - '0';
 		i++;
 		j += 2;
 	}
@@ -58,10 +58,10 @@ int	ft_check_numbers(int *tab_arg)
 
 	i = 0;
 	while (i <= 3)
-	{
-		
+	{	
 		j = i + 4;
-		if (((tab_arg[i] + tab_arg[j]) >= 3) && ((tab_arg[i] + tab_arg[j]) <= 5))
+		if (((tab_arg[i] + tab_arg[j]) >= 3)
+			&& ((tab_arg[i] + tab_arg[j]) <= 5))
 			i++;
 		else
 			return (1);
@@ -70,7 +70,8 @@ int	ft_check_numbers(int *tab_arg)
 	while (i <= 11)
 	{
 		j = i + 4;
-		if (((tab_arg[i] + tab_arg[j]) >= 3) && ((tab_arg[i] + tab_arg[j]) <= 5))
+		if (((tab_arg[i] + tab_arg[j]) >= 3)
+			&& ((tab_arg[i] + tab_arg[j]) <= 5))
 			i++;
 		else
 			return (1);
