@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush01_attempts.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 09:59:26 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/15 13:48:02 by almarico         ###   ########.fr       */
+/*   Created: 2023/07/15 14:14:34 by almarico          #+#    #+#             */
+/*   Updated: 2023/07/15 14:20:26 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_chek_numbers(int *tab_arg);
 int	main(int argc, char **argv)
 {
 	int	*tab_arg;
+	int	**tab;
+
 	argv++;
 	argc--;
 	if (argc != 1)
@@ -41,6 +43,8 @@ int	main(int argc, char **argv)
 			write(1, "Error\n", 6);
 			return (1);
 		}
+		tab = create_table(4);
+		display_tab(tab, 4);
 	}
 	return (0);
 }

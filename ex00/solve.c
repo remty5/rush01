@@ -6,7 +6,7 @@
 /*   By: rvandepu <rvandepu@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 10:27:01 by rvandepu          #+#    #+#             */
-/*   Updated: 2023/07/15 11:43:46 by rvandepu         ###   ########.fr       */
+/*   Updated: 2023/07/15 14:20:39 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,5 @@ void	display_tab(int **tab, int size)
 		}
 		write(1, "\n", 1);
 		i++;
-	}
-}
-
-int	main(int argc, char *argv[])
-{
-	int	**tab;
-
-	if (argc == 2)
-	{
-		tab = create_table(atoi(argv[1]));
-		display_tab(tab, atoi(argv[1]));
 	}
 }
