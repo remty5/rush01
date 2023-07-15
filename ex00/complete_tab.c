@@ -6,7 +6,7 @@
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:09:30 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/15 18:22:12 by almarico         ###   ########.fr       */
+/*   Updated: 2023/07/15 18:29:45 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	**complete_simple(int **tab, int *arg)
 		if (arg[i] == 1 && arg[i + 4] == 4)
 			ft_fullfill_line(tab, i, arg[i]);
 		if (arg[i] == 1 && arg[i + 4] != 4)
-			tab[i][0] = 4;
+			tab[i % 4][0] = 4;
 		i++;
 	}
 	return (tab);
