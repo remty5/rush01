@@ -6,7 +6,7 @@
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:14:34 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/15 19:25:07 by rvandepu         ###   ########.fr       */
+/*   Updated: 2023/07/15 23:25:40 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 int		ft_check_params(char *str);
 int		*convert_params(char *str, int *tab_arg);
 int		ft_check_numbers(int *tab_arg);
+int		ft_check_face(int *tab_arg);
 int		create_tab(int ***tab, int size);
 int		**complete_tab(int **tab, int *arg);
 int		verify_tab(int **tab, int *arg);
 void	display_tab(int **tab, int size);
-
+//checker si il y a les memes nombre cotes a cote : ft_check_face
 int	sanitize_params(int **tab_arg, char **params)
 {
 	if (ft_check_params(params[1]) != 0)
@@ -30,6 +31,8 @@ int	sanitize_params(int **tab_arg, char **params)
 		return (1);
 	*tab_arg = convert_params(params[1], *tab_arg);
 	if (ft_check_numbers(*tab_arg) != 0)
+		return (1);
+	if (ft_check_face(*tab_arg) != 0)
 		return (1);
 	return (0);
 }

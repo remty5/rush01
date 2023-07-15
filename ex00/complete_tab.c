@@ -6,11 +6,11 @@
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:09:30 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/15 19:29:14 by rvandepu         ###   ########.fr       */
+/*   Updated: 2023/07/15 22:33:21 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//int	**complete_other(int **tab, int *arg);
+int	**complete_other(int **tab, int *arg);
 int	verify_tab(int **tab, int *arg);
 int	error(void);
 
@@ -86,10 +86,10 @@ int	**complete_simple(int **tab, int *arg)
 	return (tab);
 }
 
-//complete_other(tab, arg);
 int	complete_tab(int **tab, int *arg)
 {
 	complete_simple(tab, arg);
+	complete_other(tab, arg);
 	if (verify_tab(tab, arg) != 0)
 		return (error());
 	return (0);
