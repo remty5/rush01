@@ -6,13 +6,13 @@
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:09:30 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/15 18:29:45 by almarico         ###   ########.fr       */
+/*   Updated: 2023/07/15 19:29:14 by rvandepu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	**complete_other(int **tab, int *arg);
+//int	**complete_other(int **tab, int *arg);
 int	verify_tab(int **tab, int *arg);
-void	error(void);
+int	error(void);
 
 int	**ft_fullfill_column(int **tab, int i, int value)
 {
@@ -86,11 +86,11 @@ int	**complete_simple(int **tab, int *arg)
 	return (tab);
 }
 
-int	**complete_tab(int **tab, int *arg)
+//complete_other(tab, arg);
+int	complete_tab(int **tab, int *arg)
 {
 	complete_simple(tab, arg);
-	complete_other(tab, arg);
-	if (verify(tab, arg) != 0)
+	if (verify_tab(tab, arg) != 0)
 		return (error());
-	return (tab);
+	return (0);
 }

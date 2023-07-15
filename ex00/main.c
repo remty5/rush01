@@ -6,7 +6,7 @@
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:14:34 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/15 16:05:04 by rvandepu         ###   ########.fr       */
+/*   Updated: 2023/07/15 19:25:07 by rvandepu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		*convert_params(char *str, int *tab_arg);
 int		ft_check_numbers(int *tab_arg);
 int		create_tab(int ***tab, int size);
 int		**complete_tab(int **tab, int *arg);
+int		verify_tab(int **tab, int *arg);
 void	display_tab(int **tab, int size);
 
 int	sanitize_params(int **tab_arg, char **params)
