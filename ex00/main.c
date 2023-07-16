@@ -6,12 +6,12 @@
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:14:34 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/16 12:09:41 by rvandepu         ###   ########.fr       */
+/*   Updated: 2023/07/16 16:08:46 by rvandepu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int		ft_check_params(char *str);
 int		*convert_params(char *str, int *tab_arg);
@@ -19,10 +19,8 @@ int		ft_check_numbers(int *tab_arg);
 int		ft_check_face_equ(int *tab_arg);
 int		ft_check_face_sum(int *tab_arg);
 int		create_tab(int ***tab, int size);
-int		**complete_tab(int **tab, int *arg);
-int		verify_tab(int **tab, int *arg);
+int		bruteforce(int **tab, int *arg);
 void	display_tab(int **tab, int size);
-//checker si il y a les memes nombre cotes a cote : ft_check_face
 
 int	sanitize_params(int **tab_arg, char **params)
 {
@@ -58,7 +56,8 @@ int	main(int argc, char **argv)
 		return (error());
 	if (create_tab(&tab, 4) != 0)
 		return (error());
-	complete_tab(tab, arg);
+	if (bruteforce(tab, arg) != 0)
+		return (error());
 	display_tab(tab, 4);
 	return (0);
 }

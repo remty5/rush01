@@ -6,33 +6,24 @@
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 12:21:39 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/16 12:08:57 by rvandepu         ###   ########.fr       */
+/*   Updated: 2023/07/16 15:13:13 by rvandepu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_check_params(char *str)
 {
 	int	i;
-	int	count_nb;
-	int	count_space;
 
 	i = 0;
-	count_nb = 0;
-	count_space = 0;
 	while (str[i])
 	{
-		if (str[i] >= '1' && str[i] <= '4')
-			count_nb++;
-		if (str[i] == ' ')
-			count_space++;
+		if (i % 2 == 0 && !('1' <= str[i] && str[i] <= '4'))
+			return (1);
+		else if (i % 2 == 1 && !(str[i] == ' '))
+			return (1);
 		i++;
 	}
-	if (count_nb != 16)
-		return (1);
-	else if (count_space != 15)
-		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 int	*convert_params(char *str, int *tab_arg)
@@ -78,12 +69,6 @@ int	ft_check_numbers(int *tab_arg)
 	}
 	return (0);
 }
-/*
-il y a des erreurs a gerer en plus, si je mt que des 2 em parametres
-ca devrait retourner une erreurs alors que la ca ne le fais pas ,
-j'ai essayer 2 fonctions, elles sont surement complementaires,
-mais dans tout les cas l'erreur n'est pas detecter...
-   */
 
 int	ft_check_face_equ(int *arg)
 {
