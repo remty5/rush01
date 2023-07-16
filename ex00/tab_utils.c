@@ -6,7 +6,7 @@
 /*   By: rvandepu <rvandepu@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 10:27:01 by rvandepu          #+#    #+#             */
-/*   Updated: 2023/07/15 15:58:19 by rvandepu         ###   ########.fr       */
+/*   Updated: 2023/07/16 20:00:22 by rvandepu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ int	create_tab(int ***tab, int size)
 		if ((*tab)[i++] == NULL)
 			return (1);
 	}
+	return (0);
+}
+
+int	free_tab(int **tab, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:14:34 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/16 16:08:46 by rvandepu         ###   ########.fr       */
+/*   Updated: 2023/07/16 20:03:37 by rvandepu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		ft_check_numbers(int *tab_arg);
 int		ft_check_face_equ(int *tab_arg);
 int		ft_check_face_sum(int *tab_arg);
 int		create_tab(int ***tab, int size);
+int		free_tab(int **tab, int size);
 int		bruteforce(int **tab, int *arg);
 void	display_tab(int **tab, int size);
 
@@ -45,6 +46,12 @@ int	error(void)
 	return (1);
 }
 
+int	error_free(int *arg)
+{
+	free(arg);
+	return (error());
+}
+
 int	main(int argc, char **argv)
 {
 	int	**tab;
@@ -52,12 +59,17 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (error());
-	if (sanitize_params(&arg, argv) != 0)
-		return (error());
-	if (create_tab(&tab, 4) != 0)
-		return (error());
-	if (bruteforce(tab, arg) != 0)
-		return (error());
-	display_tab(tab, 4);
-	return (0);
+	else if (sanitize_params(&arg, argv) != 0)
+		return (error_free(arg));
+	else if (create_tab(&tab, 4) != 0)
+		return (error_free(arg));
+	else if (bruteforce(tab, arg) != 0)
+		return (error_free(arg) + free_tab(tab, 4));
+	else
+	{
+		free(arg);
+		display_tab(tab, 4);
+		free_tab(tab, 4);
+		return (0);
+	}
 }
