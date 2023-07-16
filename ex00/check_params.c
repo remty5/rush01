@@ -6,7 +6,7 @@
 /*   By: almarico <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 12:21:39 by almarico          #+#    #+#             */
-/*   Updated: 2023/07/15 23:27:56 by almarico         ###   ########.fr       */
+/*   Updated: 2023/07/16 12:08:57 by rvandepu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,22 +84,22 @@ ca devrait retourner une erreurs alors que la ca ne le fais pas ,
 j'ai essayer 2 fonctions, elles sont surement complementaires,
 mais dans tout les cas l'erreur n'est pas detecter...
    */
-int	ft_check_face(int *tab_arg)
+
+int	ft_check_face_equ(int *arg)
 {
-	printf("coucou\n");
-	if (tab_arg[0] == tab_arg[1] == tab_arg[2] == tab_arg[3])
+	if (arg[0] == arg[1] && arg[1] == arg[2] && arg[2] == arg[3])
 		return (1);
-	else if (tab_arg[4] == tab_arg[5] == tab_arg[6] == tab_arg[7])
+	else if (arg[4] == arg[5] && arg[5] == arg[6] && arg[6] == arg[7])
 		return (1);
-	else if (tab_arg[8] == tab_arg[9] == tab_arg[10] == tab_arg[11])
+	else if (arg[8] == arg[9] && arg[9] == arg[10] && arg[10] == arg[11])
 		return (1);
-	else if (tab_arg[12] == tab_arg[13] == tab_arg[14] == tab_arg[15])
+	else if (arg[12] == arg[13] && arg[13] == arg[14] && arg[14] == arg[15])
 		return (1);
 	else
 		return (0);
 }
-/*
-int	ft_check_face(int *tab_arg)
+
+int	ft_check_face_sum(int *tab_arg)
 {
 	int	i;
 	int	res;
@@ -127,4 +127,3 @@ int	ft_check_face(int *tab_arg)
 		return (1);
 	return (0);
 }
-*/
